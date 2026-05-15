@@ -4,13 +4,20 @@ import { MenuGrid } from "../components/MenuGrid";
 import { SectionTitle } from "../components/SectionTitle";
 import { exclusiveItems, guideItems } from "../data/guidedata";
 import { MenuCard } from "../components/MenuCard";
+import { ChatbotWidget } from "../components/CahtBotWidget";
 
 export default function HomePage() {
   return (
     <main id="topo" className="min-h-screen bg-slate-50 text-slate-900">
       <Hero />
 
-      <MenuGrid  id="menu" label="Menu principal" title="Escolha uma opção" description="Acesse rapidamente informções do hotel"items={guideItems} />
+      <MenuGrid
+        id="menu"
+        label="Menu principal"
+        title="Escolha uma opção"
+        description="Acesse rapidamente informções do hotel"
+        items={guideItems}
+      />
 
       <section className="bg-white px-6 py-12">
         <div className="mx-auto max-w-5xl">
@@ -60,6 +67,7 @@ export default function HomePage() {
           Guia Digital do Hóspede — Praia de Mundaú, Trairi/CE
         </p>
       </footer>
+      <ChatbotWidget />
     </main>
   );
 }
