@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
-import { chatbotAnswers } from "../data/ChatbotData";
 
 type Message = {
   id: number;
@@ -28,6 +27,7 @@ export function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const nextMessageId = useRef(initialMessages.length + 1);
 
@@ -43,37 +43,43 @@ export function ChatbotWidget() {
     return message;
   }
 
-  function findAnswer(question: string): string {
-    const normalizedQuestion = question.toLowerCase();
-
-    const matchedAnswer = chatbotAnswers.find((item) =>
-      item.keywords.some((keyword) =>
-        normalizedQuestion.includes(keyword.toLowerCase()),
-      ),
-    );
-
-    if (!matchedAnswer) {
-      return "Não encontrei essa informação agora. Você pode falar diretamente com a recepção pelo WhatsApp: https://wa.me/5585999120074";
-    }
-
-    return matchedAnswer.answer;
-  }
-
-  function sendMessage(text: string) {
+  async function sendMessage(text: string) {
     const trimmedText = text.trim();
 
-    if (!trimmedText) return;
+    if (!trimmedText || isLoading) return;
 
     const userMessage = createMessage(trimmedText, "user");
-    const botMessage = createMessage(findAnswer(trimmedText), "bot");
 
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      userMessage,
-      botMessage,
-    ]);
-
+    setMessages((currentMessages) => [...currentMessages, userMessage]);
     setInputValue("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: trimmedText,
+        }),
+      });
+
+      const data = await response.json();
+
+      const botMessage = createMessage(data.answer, "bot");
+
+      setMessages((currentMessages) => [...currentMessages, botMessage]);
+    } catch {
+      const errorMessage = createMessage(
+        "Desculpe, não consegui responder agora. Fale com a recepção pelo WhatsApp.",
+        "bot",
+      );
+
+      setMessages((currentMessages) => [...currentMessages, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -82,19 +88,11 @@ export function ChatbotWidget() {
     sendMessage(inputValue);
   }
 
-  function toggleChatbot() {
-    setIsOpen((currentValue) => !currentValue);
-  }
-
-  function closeChatbot() {
-    setIsOpen(false);
-  }
-
   return (
     <>
       <button
         type="button"
-        onClick={toggleChatbot}
+        onClick={() => setIsOpen((currentValue) => !currentValue)}
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#009CDE] text-2xl text-white shadow-lg transition hover:scale-105 hover:bg-sky-600"
         aria-label={isOpen ? "Fechar chatbot" : "Abrir chatbot"}
       >
@@ -107,12 +105,12 @@ export function ChatbotWidget() {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <h2 className="font-bold">Assistente Hotel das Marés</h2>
-                <p className="text-sm text-white/80">Atendimento digital</p>
+                <p className="text-sm text-white/80">Atendimento com IA</p>
               </div>
 
               <button
                 type="button"
-                onClick={closeChatbot}
+                onClick={() => setIsOpen(false)}
                 className="rounded-full bg-white/15 px-3 py-1 text-sm transition hover:bg-white/25"
                 aria-label="Fechar chatbot"
               >
@@ -144,6 +142,14 @@ export function ChatbotWidget() {
                 </div>
               );
             })}
+
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="rounded-2xl bg-white px-4 py-3 text-sm text-slate-500 shadow-sm">
+                  Digitando...
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="border-t border-slate-200 bg-white p-4">
@@ -153,7 +159,8 @@ export function ChatbotWidget() {
                   key={question}
                   type="button"
                   onClick={() => sendMessage(question)}
-                  className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-200"
+                  disabled={isLoading}
+                  className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {question}
                 </button>
@@ -170,7 +177,8 @@ export function ChatbotWidget() {
 
               <button
                 type="submit"
-                className="rounded-full bg-[#F7941D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-500"
+                disabled={isLoading}
+                className="rounded-full bg-[#F7941D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 Enviar
               </button>
