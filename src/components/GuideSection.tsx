@@ -1,5 +1,6 @@
-import { GuideItem } from "../data/guidedata"
+import { GuideItem } from "../data/guidedata";
 import { BackToTopLink } from "./BackToTopLink";
+import Image from "next/image";
 
 type GuideSectionProps = {
   item: GuideItem;
@@ -21,6 +22,19 @@ export function GuideSection({ item }: GuideSectionProps) {
             {item.description}
           </h2>
 
+          {item.id === "mapa" && (
+            <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <Image
+                src="/img/mapa1.jpeg"
+                alt="Mapa de experiências do Hotel das Marés"
+                width={1280}
+                height={526}
+                sizes="(min-width: 1024px) 960px, calc(100vw - 48px)"
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          )}
+
           <ul className="mt-6 space-y-3 text-slate-700">
             {item.details.map((detail) => (
               <li key={detail} className="leading-7">
@@ -40,7 +54,7 @@ export function GuideSection({ item }: GuideSectionProps) {
             </a>
           )}
           <div>
-            <BackToTopLink/>
+            <BackToTopLink />
           </div>
         </div>
       </div>

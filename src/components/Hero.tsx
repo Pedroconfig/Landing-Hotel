@@ -5,7 +5,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-[#009CDE] text-white">
       <div className="absolute inset-0">
         <Image
-          src="/img/banner-praia.png"
+          src="/img/hotel-real.jpeg"
           alt="Praia de Mundaú"
           fill
           priority
