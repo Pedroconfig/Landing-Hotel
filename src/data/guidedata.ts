@@ -20,6 +20,7 @@ import {
   ConciergeBell,
   Camera,
   PawPrint,
+  Bell,
   type LucideIcon,
 } from "lucide-react";
 
@@ -99,20 +100,21 @@ Aproveite esse momento especial e tenha um excelente dia!`,
     details: [
       "Relaxe e aproveite nossos espaços de lazer 🌴",
 
-      "O Hotel das Marés possui uma **piscina exclusiva para hóspedes**, reservada especialmente para proporcionar mais conforto e tranquilidade durante sua estadia.",
+      "O Hotel das Marés possui uma piscina exclusiva para hóspedes, reservada especialmente para proporcionar mais conforto e tranquilidade durante sua estadia.",
+      "Horário de funcionamento: das 08:00 às 22:00",
+      "Oferecemos ainda CORTESIA no acesso ao Parque Aquático - AcquaMarés nos dias de funcionamento do parque. Temos também , áreas de convivência  e espaços perfeitos para aproveitar bons momentos.",
 
-      "Temos também áreas de convivência e espaços perfeitos para aproveitar bons momentos em família.",
     ],
   },
   {
     id: "aquamares",
-    title: "Aquamares",
+    title: "Acquamares",
     description: "Informações sobre o parque aquático.",
     icon: Droplets,
     details: [
       "Diversão garantida para toda a família 🌊",
 
-      "O **Acquamares (parque aquático)** funciona de **quarta-feira a domingo e feriados**, das **10:00 às 16:30**.",
+      "O Acquamares funciona de quarta-feira a domingo e feriados, das 10:00 às 16:30.",
 
       "Aproveite momentos especiais com piscinas, áreas de lazer e muito entretenimento para todas as idades.,",
     ],
@@ -260,7 +262,7 @@ Aproveite esse momento especial e tenha um excelente dia!`,
   {
     id: "hotel-normas",
     title: "Normas Hotel",
-    description: "normas de hospedagem",
+    description: "Normas de hospedagem",
     icon: Utensils,
     details: [
       " Para garantir conforto, segurança e tranquilidade a todos os hóspedes:",
@@ -285,7 +287,7 @@ Aproveite esse momento especial e tenha um excelente dia!`,
   {
     id: "area",
     title: "Área Kids e Família",
-    description: "área para diversão em família e crianças",
+    description: "Área para diversão em família e crianças",
     icon: UsersRound,
     details: [
       "Diversão e momentos especiais em família fazem parte da experiência Hotel das Marés 🌊",
@@ -309,7 +311,7 @@ Aproveite esse momento especial e tenha um excelente dia!`,
   },
   {
     id: "serviços",
-    title: "serviços extras",
+    title: "Serviços extras",
     description: "serviços extras ofeecidos pelo Hotel das Marés",
     icon: ConciergeBell,
     details: [
@@ -351,8 +353,12 @@ Aproveite esse momento especial e tenha um excelente dia!`,
       "💊 Farmácia:",
       "📞 (85) 99639-0708",
 
-      "🚗 Reboque 24 Horas",
+      "🚗 Reboque 24 Horas:",
       "📞 (85) 98993-5460",
+
+      "🔋 Casa das Baterias:",
+      "📞 (85) 999465766",
+
     ],
   },
   {
@@ -364,6 +370,18 @@ Aproveite esse momento especial e tenha um excelente dia!`,
       "Em caso de necessidade, entre em contato imediatamente com nossa equipe.",
 
       "Sua segurança é prioridade.",
+    ],
+  },
+  {
+    id: "servico-quarto",
+    title: "Serviço de Quarto e Limpeza",
+    description: "Informações sobre serviço de quarto e limpeza.",
+    icon: Bell,
+    details: [
+      "🛎️ Serviço de Quarto e Limpeza",
+      "O serviço de quarto está disponível para os hóspedes e possui taxa adicional.",
+      "A limpeza do apartamento deve ser solicitada na recepção até as 12h.",
+      "A troca de enxoval poderá ser realizada mediante solicitação após 48 horas de hospedagem.",
     ],
   },
 ];
@@ -426,6 +444,6 @@ export const exclusiveItems: GuideItem[] = [
       "Siga o Hotel das Marés no Instagram e fique por dentro de tudo.",
     ],
     buttonText: "Conhecer a Tata no Instagram",
-    buttonHref: "https://instagram.com",
+    buttonHref: "https://hoteldasmares.com.br/conheca-a-tata/",
   },
 ];
