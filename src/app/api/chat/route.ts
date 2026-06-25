@@ -1,12 +1,12 @@
-import { GoogleGenAI } from "@google/genai";
-const apiKey = process.env.GEMINI_API_KEY;
+import OpenAI from "openai";
 
-if (!apiKey) {
-  throw new Error("gemini api key não encontrada");
+const apikey = process.env.OPENAI_API_KEY;
+
+if (!apikey) {
+  throw new Error("Openai api key não encontrada");
 }
-
-const ai = new GoogleGenAI({
-  apiKey,
+const ai = new OpenAI({
+  apiKey: apikey,
 });
 
 const hotelContext = `Você é o assistente digital do Hotel das Marés.
@@ -28,7 +28,7 @@ Rede: HOTEL_DAS_MARES
 Senha: mares2026
 
 Recepção:
-WhatsApp: https://wa.me/5585999120074
+WhatsApp: https://wa.me/5585998090278
 
 Cashback:
 O hóspede pode ganhar benefícios e vantagens especiais em futuras hospedagens.
@@ -72,18 +72,16 @@ export async function POST(request: Request) {
       );
     }
 
-    const response = await ai.models.generateContent({
-      model: process.env.GEMINI_MODEL ?? "gemini-2.5-flash-lite",
-      contents: userMessage,
-      config: {
-        systemInstruction: hotelContext,
-        temperature: 0.2,
-        maxOutputTokens: 300,
-      },
+    const response = await ai.chat.completions.create({
+      model: process.env.OPENAI_MODEL ?? "gpt-4o-mini",
+      messages: [
+        { role: "system", content: hotelContext },
+        { role: "user", content: userMessage },
+      ],
     });
 
     const answer =
-      response.text ??
+      response.choices[0].message.content ??
       "Desculpe, não consegui responder agora. Fale com a recepção pelo whatsapp";
     return Response.json({
       answer,

@@ -93,14 +93,18 @@ export function ChatbotWidget() {
       <button
         type="button"
         onClick={() => setIsOpen((currentValue) => !currentValue)}
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#009CDE] text-2xl text-white shadow-lg transition hover:scale-105 hover:bg-sky-600"
+        style={{ bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))" }}
+        className="fixed right-5 z-50 flex h-14 w-14 touch-manipulation items-center justify-center rounded-full bg-[#009CDE] text-2xl text-white shadow-lg transition hover:scale-105 hover:bg-sky-600"
         aria-label={isOpen ? "Fechar chatbot" : "Abrir chatbot"}
       >
         💬
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-5 z-50 flex h-[520px] w-[340px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl">
+        <div
+          style={{ bottom: "calc(6rem + env(safe-area-inset-bottom, 0px))" }}
+          className="fixed right-5 z-50 flex h-[520px] w-[340px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl"
+        >
           <header className="bg-[#009CDE] px-5 py-4 text-white">
             <div className="flex items-center justify-between gap-4">
               <div>

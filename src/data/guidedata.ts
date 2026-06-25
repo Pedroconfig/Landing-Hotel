@@ -103,7 +103,6 @@ Aproveite esse momento especial e tenha um excelente dia!`,
       "O Hotel das Marés possui uma piscina exclusiva para hóspedes, reservada especialmente para proporcionar mais conforto e tranquilidade durante sua estadia.",
       "Horário de funcionamento: das 08:00 às 22:00",
       "Oferecemos ainda CORTESIA no acesso ao Parque Aquático - AcquaMarés nos dias de funcionamento do parque. Temos também , áreas de convivência  e espaços perfeitos para aproveitar bons momentos.",
-
     ],
   },
   {
@@ -236,7 +235,7 @@ Aproveite esse momento especial e tenha um excelente dia!`,
       "⚠️ Em caso de URGÊNCIA, por favor evitar mensagens. Procure atendimento imediato presencialmente ou através de ligação.",
     ],
     buttonText: "WhatsApp Recepção",
-    buttonHref: "https://wa.me/5585999120074",
+    buttonHref: "https://wa.me/5585998090278",
   },
   {
     id: "avaliacao",
@@ -307,12 +306,13 @@ Aproveite esse momento especial e tenha um excelente dia!`,
       "✅ Faça com que seu vizinho também goste do seu amigão 😊",
       "✅ Evite áreas de restaurante e alimentação.",
       "Contamos com sua compreensão 🌊",
+      "Contamos com a responsabilidade do TUTOR em coletar os dejetos do seu amigão e manter o ambiente limpo para os demais hóspedes.",
     ],
   },
   {
     id: "serviços",
     title: "Serviços extras",
-    description: "serviços extras ofeecidos pelo Hotel das Marés",
+    description: "Serviços extras oferecidos na Região de Mundaú",
     icon: ConciergeBell,
     details: [
       "Consulte disponibilidade para:",
@@ -358,7 +358,6 @@ Aproveite esse momento especial e tenha um excelente dia!`,
 
       "🔋 Casa das Baterias:",
       "📞 (85) 999465766",
-
     ],
   },
   {
@@ -402,7 +401,8 @@ export const exclusiveItems: GuideItem[] = [
       "✨ Cadastre-se e acumule benefícios!",
     ],
     buttonText: "Quero participar",
-    buttonHref: "https://wa.me/5585999120074",
+    buttonHref:
+      "https://hbook.hsystem.com.br//Booking?companyId=668701b7eb07d802b99fe55e&signup=true",
   },
   {
     id: "vouchers",

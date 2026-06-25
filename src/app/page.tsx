@@ -5,11 +5,13 @@ import { SectionTitle } from "../components/SectionTitle";
 import { exclusiveItems, guideItems } from "../data/guidedata";
 import { MenuCard } from "../components/MenuCard";
 import { ChatbotWidget } from "../components/CahtBotWidget";
+import { SmoothScroll } from "../components/SmoothScroll";
 
 // Força recompilação para atualizar os dados de guidedata
 export default function HomePage() {
   return (
     <main id="topo" className="min-h-screen bg-slate-50 text-slate-900">
+      <SmoothScroll />
       <Hero />
 
       <MenuGrid
