@@ -8,7 +8,6 @@ import { exclusiveItems, guideItems } from "../data/guidedata";
 import { MenuCard } from "../components/MenuCard";
 import { ChatbotWidget } from "../components/CahtBotWidget";
 import { SmoothScroll } from "../components/SmoothScroll";
-import { MobileDock } from "../components/MobileDock";
 import { MobileGuideEnhancer } from "../components/MobileGuideEnhancer";
 
 export default function HomePage() {
@@ -106,7 +105,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <footer className="bg-[#032f40] px-5 pb-32 pt-14 text-white sm:px-8 sm:py-14">
+      <footer className="bg-[#032f40] px-5 py-14 text-white sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-center">
           <div className="rounded-2xl bg-white px-4 py-3">
             <Image
@@ -132,7 +131,6 @@ export default function HomePage() {
       </footer>
 
       <ChatbotWidget />
-      <MobileDock />
     </main>
   );
 }
