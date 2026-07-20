@@ -28,7 +28,7 @@ Rede: HOTEL_DAS_MARES
 Senha: mares2026
 
 Recepção:
-WhatsApp: https://wa.me/5585998090278
+WhatsApp: https://wa.me/5585984466569
 
 Cashback:
 O hóspede pode ganhar benefícios e vantagens especiais em futuras hospedagens.
