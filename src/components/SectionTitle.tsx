@@ -27,11 +27,11 @@ export function SectionTitle({
       <p className={`text-xs font-black uppercase tracking-[0.22em] ${labelColor}`}>
         {label}
       </p>
-      <h2 className={`mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl ${titleColor}`}>
+      <h2 className={`mt-2.5 text-[1.75rem] font-semibold leading-tight tracking-[-0.02em] sm:mt-3 sm:text-4xl ${titleColor}`}>
         {title}
       </h2>
       {description && (
-        <p className={`mt-3 max-w-2xl text-base leading-7 ${descriptionColor}`}>
+        <p className={`mt-2.5 max-w-2xl text-[0.95rem] leading-6 sm:mt-3 sm:text-base sm:leading-7 ${descriptionColor}`}>
           {description}
         </p>
       )}

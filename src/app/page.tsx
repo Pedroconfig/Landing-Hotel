@@ -8,11 +8,14 @@ import { exclusiveItems, guideItems } from "../data/guidedata";
 import { MenuCard } from "../components/MenuCard";
 import { ChatbotWidget } from "../components/CahtBotWidget";
 import { SmoothScroll } from "../components/SmoothScroll";
+import { MobileDock } from "../components/MobileDock";
+import { MobileGuideEnhancer } from "../components/MobileGuideEnhancer";
 
 export default function HomePage() {
   return (
     <main id="topo" className="min-h-screen overflow-hidden bg-[#f7f3eb] text-[#153f4b]">
       <SmoothScroll />
+      <MobileGuideEnhancer />
       <Hero />
 
       <MenuGrid
@@ -23,11 +26,11 @@ export default function HomePage() {
         items={guideItems}
       />
 
-      <section className="relative overflow-hidden bg-[#063e52] px-5 py-20 text-white sm:px-8 sm:py-24">
+      <section className="relative overflow-hidden bg-[#063e52] px-4 py-16 text-white sm:px-8 sm:py-24">
         <div className="absolute -right-24 -top-28 h-96 w-96 rounded-full border-[72px] border-white/[0.025]" />
         <div className="absolute -bottom-40 left-[15%] h-80 w-80 rounded-full bg-[#0a6f88]/20 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="mb-8 flex flex-col justify-between gap-5 sm:mb-10 sm:gap-6 lg:flex-row lg:items-end">
             <SectionTitle
               label="Só para hóspedes"
               title="Benefícios exclusivos"
@@ -40,7 +43,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
             {exclusiveItems.map((item) => (
               <MenuCard
                 key={item.id}
@@ -55,8 +58,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#fbfaf7] px-5 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[.85fr_1.15fr]">
+      <section className="bg-[#fbfaf7] px-4 py-16 sm:px-8 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-10 lg:grid-cols-[.85fr_1.15fr]">
           <div className="max-w-xl">
             <SectionTitle
               label="Tudo em detalhes"
@@ -71,7 +74,7 @@ export default function HomePage() {
               <ArrowUpRight size={17} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
-          <div className="relative min-h-80 overflow-hidden rounded-[2.25rem] shadow-[0_24px_60px_rgba(30,67,76,.14)] sm:min-h-96">
+          <div className="relative min-h-64 overflow-hidden rounded-[1.75rem] shadow-[0_24px_60px_rgba(30,67,76,.14)] sm:min-h-96 sm:rounded-[2.25rem]">
             <Image
               src="/img/hotel-real.jpeg"
               alt="Hotel das Marés e a Praia de Mundaú"
@@ -80,7 +83,7 @@ export default function HomePage() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#073f52]/75 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 flex items-center gap-3 p-7 text-white sm:p-9">
+            <div className="absolute bottom-0 left-0 flex items-center gap-3 p-5 text-white sm:p-9">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7941d]">
                 <MapPin size={20} />
               </div>
@@ -103,7 +106,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <footer className="bg-[#032f40] px-5 py-14 text-white sm:px-8">
+      <footer className="bg-[#032f40] px-5 pb-32 pt-14 text-white sm:px-8 sm:py-14">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-center">
           <div className="rounded-2xl bg-white px-4 py-3">
             <Image
@@ -129,6 +132,7 @@ export default function HomePage() {
       </footer>
 
       <ChatbotWidget />
+      <MobileDock />
     </main>
   );
 }

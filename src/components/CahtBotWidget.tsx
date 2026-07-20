@@ -82,8 +82,7 @@ export function ChatbotWidget() {
         <div
           role="dialog"
           aria-label="Assistente virtual do Hotel das Marés"
-          style={{ bottom: "calc(6rem + env(safe-area-inset-bottom, 0px))" }}
-          className="fixed inset-x-4 z-50 flex h-[min(620px,calc(100dvh-8rem))] flex-col overflow-hidden rounded-[2rem] border border-[#0b536a]/10 bg-white shadow-[0_28px_90px_rgba(3,47,64,.28)] sm:inset-x-auto sm:right-5 sm:w-[390px]"
+          className="chat-panel-position fixed inset-x-3 z-50 flex h-[min(620px,calc(100dvh-11rem))] flex-col overflow-hidden rounded-[1.6rem] border border-[#0b536a]/10 bg-white shadow-[0_28px_90px_rgba(3,47,64,.28)] sm:inset-x-auto sm:right-5 sm:h-[520px] sm:w-[390px] sm:rounded-[2rem]"
         >
           <header className="relative overflow-hidden bg-[#064b61] px-5 py-5 text-white">
             <div className="absolute -right-9 -top-12 h-32 w-32 rounded-full border-[22px] border-white/[0.05]" />
@@ -178,8 +177,7 @@ export function ChatbotWidget() {
       <button
         type="button"
         onClick={() => setIsOpen((current) => !current)}
-        style={{ bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))" }}
-        className="fixed right-5 z-50 flex h-15 items-center gap-2 rounded-full bg-[#f7941d] px-4 text-sm font-black text-white shadow-[0_14px_38px_rgba(247,148,29,.36)] transition hover:-translate-y-0.5 hover:bg-[#ff9f2d] sm:px-5"
+        className="chat-trigger-position fixed right-4 z-50 flex h-13 w-13 items-center justify-center gap-2 rounded-full bg-[#f7941d] text-sm font-black text-white shadow-[0_14px_38px_rgba(247,148,29,.36)] transition active:scale-95 hover:bg-[#ff9f2d] sm:right-5 sm:h-15 sm:w-auto sm:px-5 sm:hover:-translate-y-0.5"
         aria-label={isOpen ? "Fechar chatbot" : "Abrir chatbot"}
         aria-expanded={isOpen}
       >
